@@ -34,7 +34,7 @@ while trip_confirmed == False:
     while destination_confirm == 'n':
         destination_confirm = input(f'We selected {destination} for you, do you accept? y/n ')
         if destination_confirm == 'n':
-            destinations.remove(destination)#######How to handle when run out of locations
+            destinations.remove(destination)
             destination = generate_destination()
         elif destination_confirm == 'y':
             print(f'Great {destination} it is')
@@ -44,7 +44,7 @@ while trip_confirmed == False:
     while restaurant_confirm == 'n':
         restaurant_confirm = input(f'We selected {restaurant} for you, do you accept? y/n ')
         if restaurant_confirm == 'n':
-            restaurants.remove(restaurant)#######How to handle when run out of locations
+            restaurants.remove(restaurant)
             restaurant = generate_restaurant()
         elif restaurant_confirm == 'y':
             print(f'Great {restaurant} it is')
@@ -54,7 +54,7 @@ while trip_confirmed == False:
     while transportation_confirm == 'n':
         transportation_confirm = input(f'We selected {mode_of_travel} for you, do you accept? y/n ')
         if transportation_confirm == 'n':
-            transportation.remove(mode_of_travel)#######How to handle when run out of locations
+            transportation.remove(mode_of_travel)
             mode_of_travel = generate_transportation()
         elif transportation_confirm == 'y':
             print(f'Great {mode_of_travel} it is')
@@ -64,7 +64,7 @@ while trip_confirmed == False:
     while entertainment_confirm == 'n':
         entertainment_confirm = input(f'We selected {recreation} for you, do you accept? y/n ')
         if entertainment_confirm == 'n':
-            entertainment.remove(recreation)#######How to handle when run out of locations
+            entertainment.remove(recreation)
             recreation = generate_entertainment()
         elif entertainment_confirm == 'y':
             print(f'Great {recreation} it is')
@@ -88,5 +88,3 @@ else:
     print(f'Your completed trip is to {destination} with dinner at {restaurant}, transportation will be {mode_of_travel} and {recreation} for entertainment.')
 
 
-#############Things to solve: at stage to complete what next?   
-####Is there a way to reuse some code here?
