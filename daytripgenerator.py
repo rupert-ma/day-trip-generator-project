@@ -1,9 +1,9 @@
 import random
 
-destinations = ['Washington', 'Wisconsin', 'Florida']
-restaurants = ['Steak House', 'Italian', 'Indian']
-transportation = ['Rental Car', 'Bus Pass', 'Limo']
-entertainment = ['Theatre', 'Amusement Park', 'Bird Watching']
+destinations = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia',  'Wisconsin', 'Wyoming']
+restaurants = ['Steak House', 'Italian', 'Indian', 'McDonalds', 'Starbucks', 'Chick-fil-A', 'Taco Bell', 'Wendys', 'Burger King', 'Dunkin Donuts', 'Subway', 'Dominos', 'Chipotle Mexican Grill', 'Sonic Drive-In', 'Pizza Hut', 'Panera Bread', 'KFC', 'Popeyes Louisiana Kitchen', 'Arbys', 'Dairy Queen', 'Little Caesars', 'Panda Express', 'Jack in the Box', 'Olive Garden', 'Papa Johns', 'Buffalo Wild Wings', 'Applebees', 'Chilis Grill & Bar']
+transportation = ['Rental Car', 'Bus Pass', 'Limo', 'Airplane', 'Helicopter', 'By Foot', 'Trolley', 'Train', 'Horse Drawn Cart', 'Bicycle', 'Motorcycle']
+entertainment = ['Live Theatre', 'Amusement Park', 'Bird Watching', 'Movie Theater', 'Comedy Show', 'Live Concert', 'Poetry reading', 'Art Class', 'Sporting event', 'Arcade', 'Circus', 'Magic Show', 'Food Festival', 'Shopping', 'Skydiving']
 
 #randomly select destination
 def generate_destination():
@@ -21,7 +21,7 @@ def generate_transportation():
 def generate_entertainment():
     return random.choice(entertainment)
 
-#confirm selections or reslect, print finalized trip, 
+#confirm selections or reselect, print finalized trip, 
 def confirm_generated_selections(destination, restaurant, mode_of_travel, recreation):
     trip_confirmed = False
     while trip_confirmed == False:
@@ -74,6 +74,18 @@ def confirm_generated_selections(destination, restaurant, mode_of_travel, recrea
     print(f'Transportation: {mode_of_travel}')
     print(f'Restaraunt: {restaurant}')
     print(f'Entertainment: {recreation}')
+    
+    #finalizes trip 
+    confirm_final = input('Would you like to finalize this trip? y/n ')
+    if confirm_final == 'n':
+        startover = input('Ok do you want to start over? y/n ')
+        if startover =='y':
+            confirm_generated_selections(destination, restaurant, mode_of_travel, recreation)
+        else:
+            print('Ok, exiting program. Please try again later')
+    else:
+        print(f'Your completed trip is to {destination} with dinner at {restaurant}, transportation will be {mode_of_travel} and {recreation} for entertainment.')
+
 
 #calls functions to generate options and store values
 destination = generate_destination()
@@ -83,16 +95,4 @@ recreation = generate_entertainment()
 
 #calls function to confirm previously generated trip options
 confirm_generated_selections(destination, restaurant, mode_of_travel, recreation)
-
-#finalizes trip 
-confirm_final = input('Would you like to finalize this trip? y/n ')
-if confirm_final == 'n':
-    startover = input('Ok do you want to start over? y/n ')
-    if startover =='y':
-        confirm_generated_selections(destination, restaurant, mode_of_travel, recreation)
-    else:
-        print('Ok, exiting program. Please try again later')
-else:
-    print(f'Your completed trip is to {destination} with dinner at {restaurant}, transportation will be {mode_of_travel} and {recreation} for entertainment.')
-
 
